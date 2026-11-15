@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Доска публикаций — Лабораторная работа 3</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="container">
+      <h1>Доска публикаций</h1>
+      <p class="subtitle">Лабораторная работа 3. Асинхронный JavaScript и REST API (JSONPlaceholder)</p>
+    </div>
+  </header>
+
+  <main class="container layout">
+    <!-- Форма создания публикации -->
+    <section class="card" aria-labelledby="form-title">
+      <h2 id="form-title">Новая публикация</h2>
+
+      <form id="post-form" novalidate>
+        <div class="field">
+          <label for="post-title">Заголовок</label>
+          <input id="post-title" name="title" type="text" maxlength="120"
+                 placeholder="Введите заголовок" autocomplete="off">
+          <p class="field-error" id="post-title-error" aria-live="polite"></p>
+        </div>
+
+        <div class="field">
+          <label for="post-body">Текст</label>
+          <textarea id="post-body" name="body" rows="6" maxlength="1000"
+                    placeholder="Введите текст публикации"></textarea>
+          <p class="field-error" id="post-body-error" aria-live="polite"></p>
+        </div>
+
+        <button type="submit" id="create-btn" class="btn btn-primary">Создать публикацию</button>
+      </form>
+    </section>
+
+    <!-- Область сообщений и результат POST -->
+    <section class="card" aria-labelledby="messages-title">
+      <h2 id="messages-title">Сообщения</h2>
+      <div id="message" class="message message-info" role="status" aria-live="polite">
+        <span class="spinner" aria-hidden="true"></span>
+        <span id="message-text">Нажмите «Загрузить публикации», чтобы получить данные с сервера.</span>
+      </div>
+
+      <div id="created-result" class="created-result" hidden>
+        <h3>Ответ сервера на создание</h3>
+        <dl class="result-grid">
+          <dt>HTTP-статус</dt><dd id="created-status"></dd>
+          <dt>ID</dt><dd id="created-id"></dd>
+          <dt>Заголовок</dt><dd id="created-title"></dd>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Список публикаций -->
+    <section class="card card-wide" aria-labelledby="list-title">
+      <div class="list-header">
+        <h2 id="list-title">Публикации</h2>
+        <button type="button" id="load-btn" class="btn btn-secondary">Загрузить публикации</button>
+      </div>
+
+      <ul id="posts-list" class="posts-list"></ul>
+      <p id="posts-empty" class="empty-state">Публикации ещё не загружены.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
