@@ -4,8 +4,6 @@
 **Группа:** БПИ-23-РП-3  
 **Приложение:** «Доска публикаций» — загрузка и создание публикаций через REST API JSONPlaceholder (HTML, CSS, vanilla JavaScript).
 
-**Демо:** https://shokuy.github.io/misis-lab3-posts-board/
-
 ## Структура проекта
 
 ```
